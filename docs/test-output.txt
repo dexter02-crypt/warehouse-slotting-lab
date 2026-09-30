@@ -1,52 +1,100 @@
 TAP version 13
-# Subtest: parser reads required schema
-ok 1 - parser reads required schema
+# Subtest: basic parser remains supported with defaults
+ok 1 - basic parser remains supported with defaults
   ---
-  duration_ms: 0.856292
+  duration_ms: 2.004074
+  type: 'test'
+  ...
+# Subtest: extended parser reads constraints
+ok 2 - extended parser reads constraints
+  ---
+  duration_ms: 0.235616
   type: 'test'
   ...
 # Subtest: ABC puts highest mover in A
-ok 2 - ABC puts highest mover in A
+ok 3 - ABC puts highest mover in A
   ---
-  duration_ms: 0.958466
+  duration_ms: 0.198229
   type: 'test'
   ...
-# Subtest: distance is Manhattan
-ok 3 - distance is Manhattan
+# Subtest: XYZ thresholds are explicit
+ok 4 - XYZ thresholds are explicit
   ---
-  duration_ms: 0.188064
+  duration_ms: 0.157578
   type: 'test'
   ...
-# Subtest: optimization cannot worsen assignment for deterministic sample
-ok 4 - optimization cannot worsen assignment for deterministic sample
+# Subtest: same-aisle travel stays inside aisle
+ok 5 - same-aisle travel stays inside aisle
   ---
-  duration_ms: 0.356928
+  duration_ms: 0.218409
   type: 'test'
   ...
-# Subtest: summary reduction agrees with travel
-ok 5 - summary reduction agrees with travel
+# Subtest: different aisles use front cross aisle
+ok 6 - different aisles use front cross aisle
   ---
-  duration_ms: 0.200843
+  duration_ms: 0.094082
   type: 'test'
   ...
-# Subtest: CSV round trip preserves count
-ok 6 - CSV round trip preserves count
+# Subtest: compatibility enforces capacity weight and zone
+ok 7 - compatibility enforces capacity weight and zone
   ---
-  duration_ms: 0.151539
+  duration_ms: 0.209145
   type: 'test'
   ...
-# Subtest: duplicate SKU and invalid rows rejected
-ok 7 - duplicate SKU and invalid rows rejected
+# Subtest: optimization preserves one slot per SKU
+ok 8 - optimization preserves one slot per SKU
   ---
-  duration_ms: 0.344369
+  duration_ms: 0.322056
   type: 'test'
   ...
-1..7
-# tests 7
+# Subtest: optimization respects zones
+ok 9 - optimization respects zones
+  ---
+  duration_ms: 0.39083
+  type: 'test'
+  ...
+# Subtest: weighted travel is nonnegative
+ok 10 - weighted travel is nonnegative
+  ---
+  duration_ms: 0.49074
+  type: 'test'
+  ...
+# Subtest: pick route returns to depot
+ok 11 - pick route returns to depot
+  ---
+  duration_ms: 0.232852
+  type: 'test'
+  ...
+# Subtest: simulation is deterministic for a seed
+ok 12 - simulation is deterministic for a seed
+  ---
+  duration_ms: 5.653805
+  type: 'test'
+  ...
+# Subtest: summary exposes ABC XYZ and simulation
+ok 13 - summary exposes ABC XYZ and simulation
+  ---
+  duration_ms: 0.693847
+  type: 'test'
+  ...
+# Subtest: CSV export round-trips extended model
+ok 14 - CSV export round-trips extended model
+  ---
+  duration_ms: 0.568628
+  type: 'test'
+  ...
+# Subtest: invalid duplicate and incompatible data are rejected
+ok 15 - invalid duplicate and incompatible data are rejected
+  ---
+  duration_ms: 0.252071
+  type: 'test'
+  ...
+1..15
+# tests 15
 # suites 0
-# pass 7
+# pass 15
 # fail 0
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 54.143847
+# duration_ms 78.642627
