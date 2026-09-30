@@ -1,0 +1,11 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Warehouse Slotting Lab</title><link rel="stylesheet" href="styles.css"></head>
+<body><main><header><div><div class="eyebrow">Supply-chain optimization</div><h1>Warehouse<br>Slotting Lab</h1></div><p class="muted">ABC classification plus a simplified weighted walking-distance model.</p></header>
+<div class="grid">
+<section class="card span5"><h2>SKU input</h2><textarea id="csv" rows="15" style="width:100%"></textarea><div class="controls"><button id="run" class="primary">Optimize</button><button id="sample">Reset sample</button><button id="export">Export suggestion</button></div><p id="error" class="warning"></p></section>
+<section class="card span7"><h2>Suggested layout</h2><svg id="map"></svg><p class="muted">A = blue, B = green, C = amber. Depot is modeled at aisle 1 / shelf 1.</p></section>
+<section class="card span4"><div class="eyebrow">Current weighted travel</div><div id="before" class="metric"></div></section>
+<section class="card span4"><div class="eyebrow">Suggested weighted travel</div><div id="after" class="metric"></div></section>
+<section class="card span4"><div class="eyebrow">Modeled reduction</div><div id="reduction" class="metric"></div><div id="classes" class="muted"></div></section>
+<section class="card span12"><h2>Slot proposal</h2><table><thead><tr><th>SKU</th><th>ABC</th><th>Picks/day</th><th>Current</th><th>Suggested</th></tr></thead><tbody id="table"></tbody></table></section>
+</div><footer>This is a simplified teaching model. It does not account for cube, weight, compatibility, congestion, replenishment, equipment, zoning, or real facility geometry.</footer>
+<script type="module" src="src/app.js"></script></main></body></html>

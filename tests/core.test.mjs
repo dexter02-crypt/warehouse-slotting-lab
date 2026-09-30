@@ -1,0 +1,10 @@
+import test from "node:test";import assert from "node:assert/strict";
+import {parseCsv,classifyABC,distance,weightedTravel,optimize,summarize,toCsv} from "../src/core.js";
+const csv=`sku,picks_per_day,aisle,shelf\nA,100,5,5\nB,50,4,4\nC,10,2,2\nD,5,1,3`;
+test("parser reads required schema",()=>assert.equal(parseCsv(csv).length,4));
+test("ABC puts highest mover in A",()=>assert.equal(classifyABC(parseCsv(csv))[0].class,"A"));
+test("distance is Manhattan",()=>assert.equal(distance({aisle:4,shelf:3}),5));
+test("optimization cannot worsen assignment for deterministic sample",()=>{const r=parseCsv(csv),o=optimize(r);assert.ok(weightedTravel(o)<=weightedTravel(r))});
+test("summary reduction agrees with travel",()=>{const s=summarize(parseCsv(csv));assert.equal(s.after,weightedTravel(s.optimized));assert.ok(s.reduction>=0)});
+test("CSV round trip preserves count",()=>{const r=parseCsv(csv);assert.equal(parseCsv(toCsv(r)).length,r.length)});
+test("duplicate SKU and invalid rows rejected",()=>{assert.throws(()=>parseCsv("sku,picks_per_day,aisle,shelf\nA,2,1,1\nA,3,2,2"));assert.throws(()=>parseCsv("sku,picks_per_day,aisle,shelf\nA,-1,1,1"))});
