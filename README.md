@@ -4,6 +4,10 @@ A transparent browser experiment connecting warehouse operations with small, ins
 
 **Live demo:** https://dexter02-crypt.github.io/warehouse-slotting-lab/
 
+**Release:** [v1.1.0](https://github.com/dexter02-crypt/warehouse-slotting-lab/releases/tag/v1.1.0)
+
+![Warehouse Slotting Lab before-and-after constrained slotting experiment](docs/demo.png)
+
 ## v1.1 model
 
 The model now includes:
